@@ -7,15 +7,13 @@ import Error from "./lib/Error/index.jsx";
 import { rightSide } from "./lib/style.jsx";
 import parse from "./lib/parse.jsx";
 
-export const refreshFrequency = 500;
+export const refreshFrequency = 1000;
 
 export const command = "./powerbar/status-right.sh";
 
 export const render = ({ output }) => {
-  console.log(`Right bar output: ${output}`);
   const data = parse(output);
   if (typeof data === "undefined") {
-    console.log(output);
     return (
       <div style={rightSide}>
         <Error msg="Error: unknown script output" side="right" />
